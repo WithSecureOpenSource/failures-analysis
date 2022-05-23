@@ -1,0 +1,20 @@
+.idea
+*.iml
+*.egg-info
+venv
+.venv
+*.db
+*.pyc
+.pytest_cache
+__pycache__
+.coverage
+htmlcov
+.vscode
+/.tox/
+# vim
+.*.swp
+
+build
+dist
+*.json
+*.csv
