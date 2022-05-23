@@ -35,9 +35,8 @@ def parseXMLs(path):
         if int(root.find('testsuite').attrib['failures']) > 0:
             for node in root.findall(".//failure"):
                 parent = node.getparent()
-                # text = node.text
-                failure.append(node.attrib['message'])
-                # failure.append(text)
+                #failure.append(node.attrib['message'])
+                failure.append(node.text)
                 testname.append(parent.attrib['name'])
                 filename.append(os.path.basename(xml).lower())
                 classname.append(parent.attrib['classname'])
