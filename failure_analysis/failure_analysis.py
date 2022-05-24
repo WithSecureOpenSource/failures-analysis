@@ -1,5 +1,4 @@
 from lxml import etree
-from tabulate import tabulate
 import glob as glob
 import os
 import sys
@@ -14,13 +13,6 @@ import Levenshtein
 import jellyfish
 
 
-# parseXMLs
-# takes in a path to the xml files and  returns 4 lists
-# failure, a list containing all the failures in the test
-# testanme, a list containing the names of the testnames that have the failure
-# filename, a list containing the names of the files which contain the failure
-# classname, a list containing the classnames of the testanames that have the failure
-
 def parseXMLs(path):
     failure = []
     testname = []
@@ -32,14 +24,14 @@ def parseXMLs(path):
     for xml in path:
         tree = etree.parse(xml)
         root = tree.getroot()
-        if int(root.find('testsuite').attrib['failures']) > 0:
+        if int(root.find("testsuite").attrib["failures"]) > 0:
             for node in root.findall(".//failure"):
                 parent = node.getparent()
-                #failure.append(node.attrib['message'])
+                # failure.append(node.attrib['message'])
                 failure.append(node.text)
-                testname.append(parent.attrib['name'])
+                testname.append(parent.attrib["name"])
                 filename.append(os.path.basename(xml).lower())
-                classname.append(parent.attrib['classname'])
+                classname.append(parent.attrib["classname"])
 
     return failure, testname, filename, classname
 
@@ -67,6 +59,7 @@ def cosineSimVectors(vec1, vec2):
 # jaccards, a list of jaccard scores between two items in a tuple
 # jaros, a list of jaro scores between two items in a tuple
 # levens, a list of levenshtein ratio scores between two items in a tuple
+
 
 def scoreFailures(failures):
     sm_ratios = []
@@ -111,7 +104,17 @@ def main():
 
     sm_ratios, coss, jaccards, jaros, levens = scoreFailures(failures)
 
-    items = [filenames, testnames, classnames, sm_ratios, coss, jaccards, jaros, levens, failures]
+    items = [
+        filenames,
+        testnames,
+        classnames,
+        sm_ratios,
+        coss,
+        jaccards,
+        jaros,
+        levens,
+        failures,
+    ]
 
     dfs = []
     for item in items:
@@ -119,17 +122,30 @@ def main():
         dfs.append(temp_df)
     df = pd.concat(dfs, axis=1)
 
-    df.columns = ['filename1', 'filename2', 'testname1', 'testname2', 'suitename1', 'suitename2', 'sm_ratio', 'cos',
-                  'jaccard', 'jaro', 'leven', 'failure1', 'failure2']
-    df = df[['failure1', 'suitename2', 'testname2', 'filename2', 'cos', 'leven']]
+    df.columns = [
+        "filename1",
+        "filename2",
+        "testname1",
+        "testname2",
+        "suitename1",
+        "suitename2",
+        "sm_ratio",
+        "cos",
+        "jaccard",
+        "jaro",
+        "leven",
+        "failure1",
+        "failure2",
+    ]
+    df = df[["failure1", "suitename2", "testname2", "filename2", "cos", "leven"]]
     # df = df.sort_values('cos',ascending = False)
     # df = pd.pivot_table(df,index=["failure1","testname2","classname2","filename2"])
-    for failure in np.unique(df['failure1'].values):
+    for failure in np.unique(df["failure1"].values):
         print("============== FAILURE START =================")
         print(failure)
         print("============== FAILURE END =================")
-        temp = df[df['failure1'] == failure]
-        temp = temp.sort_values('cos', ascending=True)
+        temp = df[df["failure1"] == failure]
+        temp = temp.sort_values("cos", ascending=True)
         temp = pd.pivot_table(temp, index=["suitename2", "testname2", "filename2"])
         print(temp)
     # print(df)
