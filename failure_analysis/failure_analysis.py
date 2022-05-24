@@ -5,12 +5,12 @@ import sys
 from difflib import SequenceMatcher
 
 import jellyfish
-import Levenshtein
+import Levenshtein  # type: ignore
 import numpy as np
-import pandas as pd
-from lxml import etree
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+import pandas as pd  # type: ignore
+from lxml import etree  # type: ignore
+from sklearn.feature_extraction.text import CountVectorizer  # type: ignore
+from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 
 
 def parseXMLs(path):

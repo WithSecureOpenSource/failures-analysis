@@ -1,6 +1,7 @@
 import numpy as np
 import itertools
-from xmltool import *
+
+from failure_analysis.failure_analysis import jaccardSimilarity, cosineSimVectors, scoreFailures
 
 
 def test_jaccardSimilarity():
