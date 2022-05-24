@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "failures-analysis"
+version = "0.1.0"
+description = "Tests failure analysis package provides fast and reliable way to find and group similar failures in your CI/CD pipeline. When failure grouping and similarity scoring is done automatically by a machine, it will free resources from development team member to fix the most important failures in their CI/CD pipeline. It is tedious work for a human to download, open and read all the test failures and analyse which failures belong to the same group. The failure-analysis package solves this problem by processing xunit xml files and using XXXXXX to find similar failures from the test results."
+authors = ["Tatu Aalto <tatu.aalto@withssecure.com>"]
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
