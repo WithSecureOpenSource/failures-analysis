@@ -1,10 +1,5 @@
-import pytest
-import sys
 import numpy as np
 import itertools
-
-sys.path.append("C:/Users/vladi/Documents/! github/failures-analysis")
-
 from xmltool import *
 
 
