@@ -1,16 +1,16 @@
-from lxml import etree
 import glob as glob
+import itertools
 import os
 import sys
-import pandas as pd
-import numpy as np
-import itertools
-
 from difflib import SequenceMatcher
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.feature_extraction.text import CountVectorizer
-import Levenshtein
+
 import jellyfish
+import Levenshtein
+import numpy as np
+import pandas as pd
+from lxml import etree
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 def parseXMLs(path):
