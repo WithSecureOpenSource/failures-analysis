@@ -12,3 +12,8 @@ def lint(ctx):
     print("=" * 20, "mypy")
     ctx.run("mypy --show-error-codes utest failure_analysis")
     print("=" * 20)
+
+
+@task
+def test(ctx):
+    ctx.run("pytest --showlocals --tb=long utest")

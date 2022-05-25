@@ -13,7 +13,7 @@ from sklearn.feature_extraction.text import CountVectorizer  # type: ignore
 from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 
 
-def parseXMLs(path):
+def parse_xml(path):
     failure = []
     testname = []
     filename = []
@@ -36,32 +36,28 @@ def parseXMLs(path):
     return failure, testname, filename, classname
 
 
-# JaccardSimiliarity
-# takes in 2 lists and returns jaccard score of the two lists
-def jaccardSimilarity(list1, list2):
+def jaccard_similarity(list1, list2):
     s1 = set(list1)
     s2 = set(list2)
     return float(len(s1.intersection(s2)) / len(s1.union(s2)))
 
 
-# cosineSimVectors
-# takes in 2 vectors and returns a cosine similiarity between two vectors
-def cosineSimVectors(vec1, vec2):
+def cosine_sim_vectors(vec1, vec2):
+    """Takes in 2 vectors and returns a cosine similiarity between two vectors."""
     vec1 = vec1.reshape(1, -1)
     vec2 = vec2.reshape(1, -1)
     return cosine_similarity(vec1, vec2)[0][0]
 
 
-# scoreFailures
-# takes in a list of tuples of failures and returns 5 lists of 5 different string similiarity algorithms
-# sm_ratios, list of similiarity scores between two items in a tuple
-# coss, a list of cosine similiarity scores between two items in a tuple
-# jaccards, a list of jaccard scores between two items in a tuple
-# jaros, a list of jaro scores between two items in a tuple
-# levens, a list of levenshtein ratio scores between two items in a tuple
+def score_failures(failures):
+    """takes in a list of tuples of failures and returns 5 lists of 5 different string similiarity algorithms.
 
-
-def scoreFailures(failures):
+    sm_ratios, list of similiarity scores between two items in a tuple
+    coss, a list of cosine similiarity scores between two items in a tuple
+    jaccards, a list of jaccard scores between two items in a tuple
+    jaros, a list of jaro scores between two items in a tuple
+    levens, a list of levenshtein ratio scores between two items in a tuple
+    """
     sm_ratios = []
     coss = []
     jaccards = []
@@ -77,10 +73,10 @@ def scoreFailures(failures):
 
         vectorizer = CountVectorizer().fit_transform([str1, str2])
         vectors = vectorizer.toarray()
-        cos = cosineSimVectors(vectors[0], vectors[1])
+        cos = cosine_sim_vectors(vectors[0], vectors[1])
         coss.append(cos)
 
-        jaccard = jaccardSimilarity(str1, str2)
+        jaccard = jaccard_similarity(str1, str2)
         jaccards.append(jaccard)
 
         jaro = jellyfish.jaro_distance(str1, str2)
@@ -95,14 +91,14 @@ def scoreFailures(failures):
 def main():
     path = sys.argv[1]
 
-    failure, testname, filename, classname = parseXMLs(path)
+    failure, testname, filename, classname = parse_xml(path)
 
     testnames = list(itertools.permutations(testname, 2))
     failures = list(itertools.permutations(failure, 2))
     filenames = list(itertools.permutations(filename, 2))
     classnames = list(itertools.permutations(classname, 2))
 
-    sm_ratios, coss, jaccards, jaros, levens = scoreFailures(failures)
+    sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
 
     items = [
         filenames,
@@ -138,8 +134,6 @@ def main():
         "failure2",
     ]
     df = df[["failure1", "suitename2", "testname2", "filename2", "cos", "leven"]]
-    # df = df.sort_values('cos',ascending = False)
-    # df = pd.pivot_table(df,index=["failure1","testname2","classname2","filename2"])
     for failure in np.unique(df["failure1"].values):
         print("============== FAILURE START =================")
         print(failure)
@@ -148,7 +142,6 @@ def main():
         temp = temp.sort_values("cos", ascending=True)
         temp = pd.pivot_table(temp, index=["suitename2", "testname2", "filename2"])
         print(temp)
-    # print(df)
 
 
 if __name__ == "__main__":
