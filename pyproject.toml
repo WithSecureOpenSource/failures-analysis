@@ -32,4 +32,4 @@ line-length = 120
 target-version = ['py38']
 
 [tool.semantic_release]
-version_variable  = pyproject.toml:tool.poetry.version
+version_variable  = "pyproject.toml:tool.poetry.version"
