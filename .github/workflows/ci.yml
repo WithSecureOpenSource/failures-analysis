@@ -40,3 +40,14 @@ jobs:
         run: poetry run invoke lint
       - name: Run tests
         run: poetry run invoke test
+
+  release:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    name: Publish
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
