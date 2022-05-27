@@ -2,7 +2,6 @@ import argparse
 import glob as glob
 import itertools
 import os
-import sys
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -91,7 +90,8 @@ def score_failures(failures):
 
 
 def main(path: str):
-
+    if not Path(path).is_dir():
+        raise ValueError(f"{path} is not directory.")
     failure, testname, filename, classname = parse_xml(path)
 
     testnames = list(itertools.permutations(testname, 2))
@@ -146,7 +146,7 @@ def main(path: str):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Process xunit and group similar failures.')
-    parser.add_argument("path", type=str,  help="Path to folder where xunit files are stored")
+    parser = argparse.ArgumentParser(description="Process xunit and group similar failures.")
+    parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
     args = parser.parse_args()
     main(args.path)
