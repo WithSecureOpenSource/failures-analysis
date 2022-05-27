@@ -5,6 +5,9 @@ description = "Tests failure analysis package provides fast and reliable way to 
 authors = ["Tatu Aalto"]
 license = "Apache-2.0"
 
+[tool.poetry.scripts]
+failure_analysis = "failure_analysis.failure_analysis"
+
 [tool.poetry.dependencies]
 python = "^3.8"
 jellyfish = "^0.9.0"
