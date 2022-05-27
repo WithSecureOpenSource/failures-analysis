@@ -1,8 +1,10 @@
+import argparse
 import glob as glob
 import itertools
 import os
 import sys
 from difflib import SequenceMatcher
+from pathlib import Path
 
 import jellyfish
 import Levenshtein  # type: ignore
@@ -88,8 +90,7 @@ def score_failures(failures):
     return sm_ratios, coss, jaccards, jaros, levens
 
 
-def main():
-    path = sys.argv[1]
+def main(path: str):
 
     failure, testname, filename, classname = parse_xml(path)
 
@@ -145,4 +146,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description='Process xunit and group similar failures.')
+    parser.add_argument("path", type=str,  help="Path to folder where xunit files are stored")
+    args = parser.parse_args()
+    main(args.path)
