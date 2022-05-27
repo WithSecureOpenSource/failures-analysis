@@ -44,3 +44,9 @@ def _log_error(function, path, excinfo):
 def clean(ctx):
     shutil.rmtree(ROOT_DIR / ".pytest_cache", onerror=_log_error)
     shutil.rmtree(UTEST_DIR / ".pytest_cache", onerror=_log_error)
+
+
+@task
+def release(ctx):
+    print("To be done")
+    pass
