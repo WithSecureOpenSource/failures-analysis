@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "failures-analysis"
-version = "0.2.0"
+version = "0.2.1"
 description = " failures-analysis package provides fast and reliable way to find and group similar failures in test automation."
 authors = ["Tatu Aalto"]
 license = "Apache-2.0"

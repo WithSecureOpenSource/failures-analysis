@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.1 (2022-05-30)
+### Fix
+* Build by poetry ([`0c86dce`](https://github.com/F-Secure/failures-analysis/commit/0c86dced450c4865469a657502e024637f7e079b))
+
 ## v0.2.0 (2022-05-30)
 ### Feature
 * Automatic release ([`e55530e`](https://github.com/F-Secure/failures-analysis/commit/e55530e4877d4de2bc395d61fa6a788ecfa1cd2f))
