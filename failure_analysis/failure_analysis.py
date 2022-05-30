@@ -89,9 +89,7 @@ def score_failures(failures):
     return sm_ratios, coss, jaccards, jaros, levens
 
 
-def main(path: str):
-    if not Path(path).is_dir():
-        raise ValueError(f"{path} is not directory.")
+def run(path: str):
     failure, testname, filename, classname = parse_xml(path)
 
     testnames = list(itertools.permutations(testname, 2))
@@ -145,8 +143,15 @@ def main(path: str):
         print(temp)
 
 
-if __name__ == "__main__":
+def main():
     parser = argparse.ArgumentParser(description="Process xunit and group similar failures.")
     parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
     args = parser.parse_args()
-    main(args.path)
+    path = args.path
+    if not Path(path).is_dir():
+        raise ValueError(f"{path} is not directory.")
+    run(path)
+
+
+if __name__ == "__main__":
+    main()
