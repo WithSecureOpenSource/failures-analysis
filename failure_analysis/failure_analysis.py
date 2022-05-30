@@ -80,7 +80,7 @@ def score_failures(failures):
         jaccard = jaccard_similarity(str1, str2)
         jaccards.append(jaccard)
 
-        jaro = jellyfish.jaro_distance(str1, str2)
+        jaro = jellyfish.jaro_similarity(str1, str2)
         jaros.append(jaro)
 
         leven = Levenshtein.ratio(str1, str2)
@@ -144,7 +144,7 @@ def run(path: str):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Process xunit and group similar failures.")
+    parser = argparse.ArgumentParser(description="Process xunit and group similar failures from xunit failures.")
     parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
     args = parser.parse_args()
     path = args.path
