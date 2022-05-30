@@ -54,3 +54,4 @@ version_toml  = [
     "pyproject.toml:tool.poetry.version",
     "failure_analysis/__init__.py:__version__"
 ]
+branch = "main"
