@@ -49,5 +49,4 @@ def clean(ctx):
 
 @task
 def release(ctx):
-    print("To be done")
-    pass
+    ctx.run("semantic-release publish")
