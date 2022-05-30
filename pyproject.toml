@@ -19,7 +19,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-failure_analysis = "failure_analysis.failure_analysis"
+failure_analysis = "failure_analysis.failure_analysis:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
