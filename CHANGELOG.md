@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.2 (2022-05-31)
+### Fix
+* Better failure if xunit path is not found ([`2f2bd6a`](https://github.com/F-Secure/failures-analysis/commit/2f2bd6a761864723d4e4a688e10296f06a4ea83a))
+* Reading xml files from folder ([`dcef437`](https://github.com/F-Secure/failures-analysis/commit/dcef43755dac43a11db3c4d8304f5fed2640a7d6))
+
 ## v0.2.1 (2022-05-30)
 ### Fix
 * Build by poetry ([`0c86dce`](https://github.com/F-Secure/failures-analysis/commit/0c86dced450c4865469a657502e024637f7e079b))
