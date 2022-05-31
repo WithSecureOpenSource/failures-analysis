@@ -18,6 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Check commit message
+        if: github.ref != 'refs/heads/main'
         uses: adityaa30/check-commit@master
         with:
           max-header-length: 255
