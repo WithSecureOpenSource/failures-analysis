@@ -1,5 +1,4 @@
 import argparse
-import glob as glob
 import itertools
 import os
 from difflib import SequenceMatcher
@@ -19,10 +18,7 @@ def parse_xml(path):
     testname = []
     filename = []
     classname = []
-
-    path = [f for f in glob.glob(path + "*.xml")]
-
-    for xml in path:
+    for xml in Path(path).glob("*.xml"):
         tree = etree.parse(xml)
         root = tree.getroot()
         if int(root.find("testsuite").attrib["failures"]) > 0:
