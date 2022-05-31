@@ -21,7 +21,7 @@ packages = [
 ]
 
 [tool.poetry.scripts]
-failure_analysis = "failure_analysis.failure_analysis:main"
+failure-analysis = "failure_analysis.failure_analysis:main"
 
 [tool.poetry.urls]
 "Change log" = "https://github.com/F-Secure/failures-analysis/blob/main/CHANGELOG.md"
