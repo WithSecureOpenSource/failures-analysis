@@ -1,5 +1,4 @@
 import argparse
-import glob as glob
 import itertools
 import os
 from difflib import SequenceMatcher
@@ -14,15 +13,12 @@ from sklearn.feature_extraction.text import CountVectorizer  # type: ignore
 from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
 
 
-def parse_xml(path):
+def parse_xml(path: Path):
     failure = []
     testname = []
     filename = []
     classname = []
-
-    path = [f for f in glob.glob(path + "*.xml")]
-
-    for xml in path:
+    for xml in path.glob("*.xml"):
         tree = etree.parse(xml)
         root = tree.getroot()
         if int(root.find("testsuite").attrib["failures"]) > 0:
@@ -90,7 +86,10 @@ def score_failures(failures):
 
 
 def run(path: str):
-    failure, testname, filename, classname = parse_xml(path)
+    xml_path = Path(path)
+    if not xml_path.is_dir():
+        raise IOError(f"{path} should be directory but it was not.")
+    failure, testname, filename, classname = parse_xml(xml_path)
 
     testnames = list(itertools.permutations(testname, 2))
     failures = list(itertools.permutations(failure, 2))
