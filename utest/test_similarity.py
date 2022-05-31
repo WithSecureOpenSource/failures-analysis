@@ -3,9 +3,11 @@ from pathlib import Path
 import numpy as np
 import itertools
 
+import pytest
+
 from failure_analysis.failure_analysis import jaccard_similarity, cosine_sim_vectors, score_failures, run
 
-UTEST_ROOT = Path(".").resolve()
+UTEST_ROOT = Path(__file__).resolve().parent
 EXPECTED_OUTPUT_START = """============== FAILURE START =================
 def test_02():
 >       assert False
@@ -49,6 +51,11 @@ def test_score_failures():
     assert sum_jaccard > 0
     assert sum_jaros > 0
     assert sum_levens > 0
+
+
+def test_invalid_path():
+    with pytest.raises(IOError):
+        run("not/here")
 
 
 def test_console_output(capsys):
