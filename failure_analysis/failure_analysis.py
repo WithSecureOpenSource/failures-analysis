@@ -91,7 +91,7 @@ def run(path: str):
         raise IOError(f"{path} should be directory but it was not.")
     failure, testname, filename, classname = parse_xml(xml_path)
 
-    if len(failure)==0:
+    if len(failure) == 0:
         print("NO FAILURES FOUND")
         exit()
 
