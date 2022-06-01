@@ -1,3 +1,5 @@
+import shutil
+import tempfile
 from pathlib import Path
 
 import numpy as np
@@ -8,6 +10,7 @@ import pytest
 from failure_analysis.failure_analysis import jaccard_similarity, cosine_sim_vectors, score_failures, run
 
 UTEST_ROOT = Path(__file__).resolve().parent
+XUNIT_FILES_DIR = UTEST_ROOT / "resources"
 EXPECTED_OUTPUT_START = """============== FAILURE START =================
 def test_02():
 >       assert False
@@ -59,9 +62,25 @@ def test_invalid_path():
 
 
 def test_console_output(capsys):
-    xunit_files = UTEST_ROOT / "rerources"
-    run(str(xunit_files))
+    run(str(XUNIT_FILES_DIR))
     captured = capsys.readouterr()
     assert EXPECTED_OUTPUT_START in captured.out
     assert EXPECTED_OUTPUT_END in captured.out
     assert "test_me.py:6: AssertionError\n" in captured.out
+
+
+def test_no_failures(capsys):
+    with pytest.raises(SystemExit):
+        with tempfile.TemporaryDirectory() as temp_folder:
+            file_name = "pass_01_.xml"
+            xunit_pass_file = XUNIT_FILES_DIR / file_name
+            shutil.copy(xunit_pass_file, Path(temp_folder) / file_name)
+            run(temp_folder)
+            captured = capsys.readouterr()
+            assert captured.out == "NO FAILURES FOUND"
+
+    with pytest.raises(SystemExit):
+        with tempfile.TemporaryDirectory() as temp_folder:
+            run(temp_folder)
+            captured = capsys.readouterr()
+            assert captured.out == "NO FAILURES FOUND"
