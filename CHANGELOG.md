@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.3 (2022-06-01)
+### Fix
+* Fix to pass lint checks ([`d588fec`](https://github.com/F-Secure/failures-analysis/commit/d588fec7d716bcfddc367d2b4f168e9ba67e3d4a))
+* Fix for no failures found case ([`b45715e`](https://github.com/F-Secure/failures-analysis/commit/b45715ea0cbee5b90f3244cbf851482500939b3c))
+
 ## v0.2.2 (2022-05-31)
 ### Fix
 * Better failure if xunit path is not found ([`2f2bd6a`](https://github.com/F-Secure/failures-analysis/commit/2f2bd6a761864723d4e4a688e10296f06a4ea83a))
