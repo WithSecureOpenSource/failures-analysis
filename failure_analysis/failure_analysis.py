@@ -1,6 +1,7 @@
 import argparse
 import itertools
 import os
+import sys
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -93,7 +94,7 @@ def run(path: str):
 
     if len(failure) == 0:
         print("NO FAILURES FOUND")
-        exit()
+        sys.exit(0)
 
     testnames = list(itertools.permutations(testname, 2))
     failures = list(itertools.permutations(failure, 2))
