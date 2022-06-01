@@ -91,6 +91,10 @@ def run(path: str):
         raise IOError(f"{path} should be directory but it was not.")
     failure, testname, filename, classname = parse_xml(xml_path)
 
+    if len(failure)==0:
+        print("NO FAILURES FOUND")
+        exit()
+
     testnames = list(itertools.permutations(testname, 2))
     failures = list(itertools.permutations(failure, 2))
     filenames = list(itertools.permutations(filename, 2))
