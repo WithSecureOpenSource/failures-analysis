@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.0 (2022-06-05)
+### Feature
+* Change etry point name ([`ede8538`](https://github.com/F-Secure/failures-analysis/commit/ede853860eb9628e0f388ea56a7c39d40ff76cf5))
+
+### Breaking
+* update entry point runner  ([`ede8538`](https://github.com/F-Secure/failures-analysis/commit/ede853860eb9628e0f388ea56a7c39d40ff76cf5))
+
+### Documentation
+* CHANGELOG.md remove not user visible change ([`421dae3`](https://github.com/F-Secure/failures-analysis/commit/421dae301fa28507f006ffc5d6cb5508ebb81bb8))
+
 ## v0.2.3 (2022-06-01)
 ### Fix
 * Fix for no failures found case ([`b45715e`](https://github.com/F-Secure/failures-analysis/commit/b45715ea0cbee5b90f3244cbf851482500939b3c))
