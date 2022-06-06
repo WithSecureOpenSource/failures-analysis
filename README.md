@@ -18,6 +18,13 @@ While it supports five different algorithms, best performing algorithms (cosine 
 
 Results and the reason why only cosine and levenshtein deemed good enough are published here: LINK TO THE FIRST PUBLICATION
 
+# Installation instructions
+
+Only Python 3.8 or newer is supported.
+
+1. Update pip `pip install -U pip` to ensure latest version is used
+2. Install from the commandline: `pip install failures-analysis`
+
 # Features
 - List of test that have the same failure
 
