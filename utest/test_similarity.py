@@ -6,8 +6,9 @@ import numpy as np
 import itertools
 
 import pytest
+from approvaltests import verify  # type: ignore
 
-from failure_analysis.failure_analysis import jaccard_similarity, cosine_sim_vectors, score_failures, run
+from failure_analysis.failure_analysis import cosine_sim_vectors, score_failures, run
 
 UTEST_ROOT = Path(__file__).resolve().parent
 XUNIT_FILES_DIR = UTEST_ROOT / "resources"
@@ -34,14 +35,6 @@ tests.test_me test_02   failing_01_.xml  1.0
 """  # noqa: W291
 
 
-def test_jaccard_similarity():
-    list1 = ["one", "two"]
-    list2 = ["one", "two"]
-    list3 = ["three", "four"]
-    assert jaccard_similarity(list1, list2) == 1
-    assert jaccard_similarity(list1, list3) == 0
-
-
 def test_cosine_sim_vectors():
     vector1 = np.array([1, 1, 1])
     vector2 = np.array([1, 1, 1])
@@ -63,9 +56,7 @@ def test_invalid_path():
 def test_console_output(capsys):
     run(str(XUNIT_FILES_DIR))
     captured = capsys.readouterr()
-    assert EXPECTED_OUTPUT_START in captured.out
-    assert EXPECTED_OUTPUT_END in captured.out
-    assert "test_me.py:6: AssertionError\n" in captured.out
+    verify(captured.out)
 
 
 def test_no_failures(capsys):
@@ -83,7 +74,7 @@ def test_no_failures(capsys):
             assert captured.out == "NO FAILURES FOUND"
 
 
-def test_finding_files():
+def test_finding_files(capsys):
     with tempfile.TemporaryDirectory() as temp_folder:
         folder_match_filter_patters = Path(temp_folder) / "xmlxml"
         folder_match_filter_patters.mkdir(parents=True)
@@ -91,3 +82,5 @@ def test_finding_files():
         shutil.copy(FAIL_01_FILE_PATH, folder_match_filter_patters / FAIL_01_FILE_NAME)
         shutil.copy(FAIL_02_FILE_PATH, folder_match_filter_patters / FAIL_02_FILE_NAME)
         run(temp_folder)
+        captured = capsys.readouterr()
+        verify(captured.out)
