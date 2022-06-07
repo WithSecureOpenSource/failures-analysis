@@ -2,6 +2,15 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.1 (2022-06-07)
+### Fix
+* Reading error message ([`60ba117`](https://github.com/F-Secure/failures-analysis/commit/60ba117feecde4f8a0dc0f79de17d29843d45609))
+* Do not parse folder with lxml ([`1bfb32c`](https://github.com/F-Secure/failures-analysis/commit/1bfb32c4ba62cc011909bf5c24d6f0689882ea01))
+* Fix to AttributeError: 'SequenceMatcher' object has no attribute 'matching_blocks'  ([`195e671`](https://github.com/F-Secure/failures-analysis/commit/195e671f0f418ac17b54d3927f98468da8007312))
+
+### Documentation
+* Update install instructions ([`cc084b4`](https://github.com/F-Secure/failures-analysis/commit/cc084b4531f02598304e5c3ddeea484ef950efc1))
+
 ## v1.0.0 (2022-06-05)
 ### Feature
 * Change etry point name ([`ede8538`](https://github.com/F-Secure/failures-analysis/commit/ede853860eb9628e0f388ea56a7c39d40ff76cf5))
