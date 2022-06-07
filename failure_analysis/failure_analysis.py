@@ -26,11 +26,15 @@ def parse_xml(path: Path):
         root = tree.getroot()
         if int(root.find("testsuite").attrib["failures"]) > 0:
             for node in root.findall(".//failure"):
+                rf_support = node.attrib.get("type")
+                if rf_support:
+                    failure.append(node.attrib["message"])
+                else:
+                    failure.append(node.text)
                 parent = node.getparent()
-                failure.append(node.attrib["message"])
                 testname.append(parent.attrib["name"])
-                filename.append(os.path.basename(xml).lower())
                 classname.append(parent.attrib["classname"])
+                filename.append(os.path.basename(xml).lower())
 
     return failure, testname, filename, classname
 
