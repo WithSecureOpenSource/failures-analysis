@@ -26,11 +26,11 @@ E       assert False
 """
 
 EXPECTED_OUTPUT_END = """============== FAILURE END =================
-                                         cos  leven
+                                         cos
 suitename2    testname2 filename2                  
-tests.test_me test_02   failing_01_.xml  1.0    1.0
-                        failing_02_.xml  1.0    1.0
-                        failing_03_.xml  1.0    1.0
+tests.test_me test_02   failing_01_.xml  1.0
+                        failing_02_.xml  1.0
+                        failing_03_.xml  1.0
 """  # noqa: W291
 
 
@@ -50,18 +50,9 @@ def test_cosine_sim_vectors():
 
 def test_score_failures():
     failures = list(itertools.permutations(["i am failure 1", "i am failure 2", "i am failure 3", "i am failure 4"], 2))
-    #sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
     coss = score_failures(failures)
-    #sum_sm = np.sum(sm_ratios)
     sum_coss = np.sum(coss)
-    #sum_jaccard = np.sum(jaccards)
-    #sum_jaros = np.sum(jaros)
-    #sum_levens = np.sum(levens)
-    #assert sum_sm > 0
     assert sum_coss > 0
-    #assert sum_jaccard > 0
-    #assert sum_jaros > 0
-    #assert sum_levens > 0
 
 
 def test_invalid_path():
