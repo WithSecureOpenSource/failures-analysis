@@ -25,8 +25,14 @@ Only Python 3.8 or newer is supported.
 1. Update pip `pip install -U pip` to ensure latest version is used
 2. Install from the commandline: `pip install failures-analysis`
 
-# Features
-- List of test that have the same failure
+# Usage
+To be able to find similar failures, users need to download xunit result(s) in to folder. How and where the download of
+the xunit files is done, is not part of this project, but example
+[flaky-test CI](https://github.com/F-Secure/flaky-test-ci/blob/main/download_artifacts.py) has an example
+how download from GitHub can be performed. Tool can be used from command line and it needs only one argument:
+path to folder where xunit xml files are located, example: 
+`failures-analysis path/to/xunit/files`
 
-# Parameters
-- `--xxx` to be defined
+# Supported xunit formats
+Package has been tested with Pytest and Robot Framework xunit output files. Other format might be supported,
+but because we do not have visibility on those formats, those are not listed.
