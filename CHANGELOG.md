@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.2 (2022-06-07)
+### Fix
+* Fix for a fix to support 2 frameworks ([`5063ca3`](https://github.com/F-Secure/failures-analysis/commit/5063ca3cfd8f38b8dd420fb736ddcd68a5dbe00a))
+* Fix to support both robotframework and pytest  ([`d9d57ad`](https://github.com/F-Secure/failures-analysis/commit/d9d57adafaf3663efd322ffdb73e95a774f4467e))
+
 ## v1.0.1 (2022-06-07)
 ### Fix
 * Reading error message ([`60ba117`](https://github.com/F-Secure/failures-analysis/commit/60ba117feecde4f8a0dc0f79de17d29843d45609))
