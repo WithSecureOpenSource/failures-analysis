@@ -26,7 +26,7 @@ def parse_xml(path: Path):
         root = tree.getroot()
         if int(root.find("testsuite").attrib["failures"]) > 0:
             for node in root.findall(".//failure"):
-                if not node.text:
+                if node.text:
                     failure.append(node.text)
                 else:
                     failure.append(node.attrib["message"])
