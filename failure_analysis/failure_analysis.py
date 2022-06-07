@@ -2,7 +2,7 @@ import argparse
 import itertools
 import os
 import sys
-from difflib import SequenceMatcher
+from difflib import SequenceMatcher 
 from pathlib import Path
 
 import jellyfish
@@ -60,34 +60,34 @@ def score_failures(failures):
     jaros, a list of jaro scores between two items in a tuple
     levens, a list of levenshtein ratio scores between two items in a tuple
     """
-    #sm_ratios = []
+    # sm_ratios = []
     coss = []
-    #jaccards = []
-    #jaros = []
-    #levens = []
+    # jaccards = []
+    # jaros = []
+    # levens = []
 
     for failure in failures:
         str1 = failure[0]
         str2 = failure[1]
 
-        #sm = SequenceMatcher(a=str1, b=str2)
-        #sm_ratios.append(sm.ratio())
+        # sm = SequenceMatcher(a=str1, b=str2)
+        # sm_ratios.append(sm.ratio())
 
         vectorizer = CountVectorizer().fit_transform([str1, str2])
         vectors = vectorizer.toarray()
         cos = cosine_sim_vectors(vectors[0], vectors[1])
         coss.append(cos)
 
-        #jaccard = jaccard_similarity(str1, str2)
-        #jaccards.append(jaccard)
+        # jaccard = jaccard_similarity(str1, str2)
+        # jaccards.append(jaccard)
 
-        #jaro = jellyfish.jaro_similarity(str1, str2)
-        #jaros.append(jaro)
+        # jaro = jellyfish.jaro_similarity(str1, str2)
+        # jaros.append(jaro)
 
-        #leven = Levenshtein.ratio(str1, str2)
-        #levens.append(leven)
+        # leven = Levenshtein.ratio(str1, str2)
+        # levens.append(leven)
 
-    #return sm_ratios, coss, jaccards, jaros, levens
+    # return sm_ratios, coss, jaccards, jaros, levens
     return coss
 
 
@@ -106,18 +106,18 @@ def run(path: str):
     filenames = list(itertools.permutations(filename, 2))
     classnames = list(itertools.permutations(classname, 2))
 
-    #sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
+    # sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
     coss = score_failures(failures)
 
     items = [
         filenames,
         testnames,
         classnames,
-        #sm_ratios,
+        # sm_ratios,
         coss,
-        #jaccards,
-        #jaros,
-        #levens,
+        # jaccards,
+        # jaros,
+        # levens,
         failures,
     ]
 
@@ -134,15 +134,15 @@ def run(path: str):
         "testname2",
         "suitename1",
         "suitename2",
-        #"sm_ratio",
+        # "sm_ratio",
         "cos",
-        #"jaccard",
-        #"jaro",
-        #"leven",
+        # "jaccard",
+        # "jaro",
+        # "leven",
         "failure1",
         "failure2",
     ]
-    #df = df[["failure1", "suitename2", "testname2", "filename2", "cos", "leven"]]
+    # df = df[["failure1", "suitename2", "testname2", "filename2", "cos", "leven"]]
     df = df[["failure1", "suitename2", "testname2", "filename2", "cos"]]
     for failure in np.unique(df["failure1"].values):
         print("============== FAILURE START =================")

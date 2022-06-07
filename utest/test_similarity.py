@@ -50,17 +50,18 @@ def test_cosine_sim_vectors():
 
 def test_score_failures():
     failures = list(itertools.permutations(["i am failure 1", "i am failure 2", "i am failure 3", "i am failure 4"], 2))
-    sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
-    sum_sm = np.sum(sm_ratios)
+    #sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
+    coss = score_failures(failures)
+    #sum_sm = np.sum(sm_ratios)
     sum_coss = np.sum(coss)
-    sum_jaccard = np.sum(jaccards)
-    sum_jaros = np.sum(jaros)
-    sum_levens = np.sum(levens)
-    assert sum_sm > 0
+    #sum_jaccard = np.sum(jaccards)
+    #sum_jaros = np.sum(jaros)
+    #sum_levens = np.sum(levens)
+    #assert sum_sm > 0
     assert sum_coss > 0
-    assert sum_jaccard > 0
-    assert sum_jaros > 0
-    assert sum_levens > 0
+    #assert sum_jaccard > 0
+    #assert sum_jaros > 0
+    #assert sum_levens > 0
 
 
 def test_invalid_path():
