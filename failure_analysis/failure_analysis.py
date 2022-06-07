@@ -35,12 +35,6 @@ def parse_xml(path: Path):
     return failure, testname, filename, classname
 
 
-def jaccard_similarity(list1, list2):
-    s1 = set(list1)
-    s2 = set(list2)
-    return float(len(s1.intersection(s2)) / len(s1.union(s2)))
-
-
 def cosine_sim_vectors(vec1, vec2):
     """Takes in 2 vectors and returns a cosine similiarity between two vectors."""
     vec1 = vec1.reshape(1, -1)
@@ -49,19 +43,14 @@ def cosine_sim_vectors(vec1, vec2):
 
 
 def score_failures(failures):
-    """takes in a list of tuples of failures and returns 5 lists of 5 different string similiarity algorithms.
+    """takes in a list of tuples of failures and returns a lists of cosine similarity.
 
-    sm_ratios, list of similiarity scores between two items in a tuple
     coss, a list of cosine similiarity scores between two items in a tuple
-    jaccards, a list of jaccard scores between two items in a tuple
-    jaros, a list of jaro scores between two items in a tuple
-    levens, a list of levenshtein ratio scores between two items in a tuple
     """
     coss = []
     for failure in failures:
         str1 = failure[0]
         str2 = failure[1]
-
         vectorizer = CountVectorizer().fit_transform([str1, str2])
         vectors = vectorizer.toarray()
         cos = cosine_sim_vectors(vectors[0], vectors[1])
@@ -83,8 +72,6 @@ def run(path: str):
     failures = list(itertools.permutations(failure, 2))
     filenames = list(itertools.permutations(filename, 2))
     classnames = list(itertools.permutations(classname, 2))
-
-    # sm_ratios, coss, jaccards, jaros, levens = score_failures(failures)
     coss = score_failures(failures)
 
     items = [
