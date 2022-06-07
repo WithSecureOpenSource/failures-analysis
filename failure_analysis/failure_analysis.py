@@ -19,7 +19,9 @@ def parse_xml(path: Path):
     testname = []
     filename = []
     classname = []
-    for xml in path.glob("*.xml"):
+    for xml in path.glob("**/*.xml"):
+        if not xml.is_file():
+            continue
         tree = etree.parse(xml)
         root = tree.getroot()
         if int(root.find("testsuite").attrib["failures"]) > 0:

@@ -11,6 +11,12 @@ from failure_analysis.failure_analysis import jaccard_similarity, cosine_sim_vec
 
 UTEST_ROOT = Path(__file__).resolve().parent
 XUNIT_FILES_DIR = UTEST_ROOT / "resources"
+PASS_01_FILE_NAME = "pass_01_.xml"
+FAIL_01_FILE_NAME = "failing_01_.xml"
+FAIL_02_FILE_NAME = "failing_02_.xml"
+PASS_01_FILE_PATH = XUNIT_FILES_DIR / PASS_01_FILE_NAME
+FAIL_01_FILE_PATH = XUNIT_FILES_DIR / FAIL_01_FILE_NAME
+FAIL_02_FILE_PATH = XUNIT_FILES_DIR / FAIL_02_FILE_NAME
 EXPECTED_OUTPUT_START = """============== FAILURE START =================
 def test_02():
 >       assert False
@@ -72,9 +78,7 @@ def test_console_output(capsys):
 def test_no_failures(capsys):
     with pytest.raises(SystemExit):
         with tempfile.TemporaryDirectory() as temp_folder:
-            file_name = "pass_01_.xml"
-            xunit_pass_file = XUNIT_FILES_DIR / file_name
-            shutil.copy(xunit_pass_file, Path(temp_folder) / file_name)
+            shutil.copy(PASS_01_FILE_PATH, Path(temp_folder) / PASS_01_FILE_NAME)
             run(temp_folder)
             captured = capsys.readouterr()
             assert captured.out == "NO FAILURES FOUND"
@@ -84,3 +88,13 @@ def test_no_failures(capsys):
             run(temp_folder)
             captured = capsys.readouterr()
             assert captured.out == "NO FAILURES FOUND"
+
+
+def test_finding_files():
+    with tempfile.TemporaryDirectory() as temp_folder:
+        folder_match_filter_patters = Path(temp_folder) / "xmlxml"
+        folder_match_filter_patters.mkdir(parents=True)
+        shutil.copy(PASS_01_FILE_PATH, folder_match_filter_patters / PASS_01_FILE_NAME)
+        shutil.copy(FAIL_01_FILE_PATH, folder_match_filter_patters / FAIL_01_FILE_NAME)
+        shutil.copy(FAIL_02_FILE_PATH, folder_match_filter_patters / FAIL_02_FILE_NAME)
+        run(temp_folder)
