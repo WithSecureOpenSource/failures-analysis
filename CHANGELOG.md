@@ -2,6 +2,16 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.3 (2022-06-07)
+### Fix
+* Remove not used dependecies from pyproject.toml ([`e352da4`](https://github.com/F-Secure/failures-analysis/commit/e352da4b981d3391ce02da901c8665875b95ca06))
+* Fix for the linting issue ([`581882a`](https://github.com/F-Secure/failures-analysis/commit/581882a1494235acca661c3910eee70fec4bd292))
+* Fix for a test_score_similiarity to take in account latest changes in the failure_analysis.py ([`4714009`](https://github.com/F-Secure/failures-analysis/commit/4714009f17e73390ef6e2d693432ffb715f91e1f))
+* Possible fix for a time-out issue, by commenting out other string similiarity algorithms but cosine similiarity. ([`e253d96`](https://github.com/F-Secure/failures-analysis/commit/e253d96e9e82ec9767a4f42dc397bf0edab0469e))
+
+### Documentation
+* Update usage instructions ([`de4e4b1`](https://github.com/F-Secure/failures-analysis/commit/de4e4b1e4b8fd197570d9e7888bea0952fff50e3))
+
 ## v1.0.2 (2022-06-07)
 ### Fix
 * Fix for a fix to support 2 frameworks ([`5063ca3`](https://github.com/F-Secure/failures-analysis/commit/5063ca3cfd8f38b8dd420fb736ddcd68a5dbe00a))
