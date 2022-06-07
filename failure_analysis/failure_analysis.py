@@ -25,8 +25,8 @@ def parse_xml(path: Path):
         if int(root.find("testsuite").attrib["failures"]) > 0:
             for node in root.findall(".//failure"):
                 parent = node.getparent()
-                # failure.append(node.attrib['message'])
-                failure.append(node.text)
+                failure.append(node.attrib['message'])
+                #failure.append(node.text)
                 testname.append(parent.attrib["name"])
                 filename.append(os.path.basename(xml).lower())
                 classname.append(parent.attrib["classname"])
