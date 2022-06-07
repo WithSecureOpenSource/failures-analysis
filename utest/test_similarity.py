@@ -30,6 +30,7 @@ EXPECTED_OUTPUT_END = """============== FAILURE END =================
 suitename2    testname2 filename2                  
 tests.test_me test_02   failing_01_.xml  1.0    1.0
                         failing_02_.xml  1.0    1.0
+                        failing_03_.xml  1.0    1.0
 """  # noqa: W291
 
 
