@@ -19,14 +19,15 @@ def parse_xml(path: Path):
     testname = []
     filename = []
     classname = []
-    for xml in path.glob("*.xml"):
+    for xml in path.glob("**/*.xml"):
+        if not xml.is_file():
+            continue
         tree = etree.parse(xml)
         root = tree.getroot()
         if int(root.find("testsuite").attrib["failures"]) > 0:
             for node in root.findall(".//failure"):
                 parent = node.getparent()
-                failure.append(node.attrib['message'])
-                #failure.append(node.text)
+                failure.append(node.attrib["message"])
                 testname.append(parent.attrib["name"])
                 filename.append(os.path.basename(xml).lower())
                 classname.append(parent.attrib["classname"])
