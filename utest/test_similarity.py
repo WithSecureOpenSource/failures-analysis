@@ -6,7 +6,7 @@ import numpy as np
 import itertools
 
 import pytest
-from approvaltests import verify
+from approvaltests import verify  # type: ignore
 
 from failure_analysis.failure_analysis import cosine_sim_vectors, score_failures, run
 
