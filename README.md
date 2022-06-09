@@ -1,4 +1,7 @@
 # Failure analysis
+
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 Tests failure analysis package provides fast and reliable way to find and group similar failures in your CI/CD
 pipeline. When failure grouping and similarity scoring is done automatically by a machine, it will free
 resources from development team member to fix the most important failures in their CI/CD pipeline. It is tedious
