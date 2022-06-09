@@ -1,5 +1,8 @@
 # Failure analysis
 
+[![Version](https://img.shields.io/pypi/v/failures-analysis.svg)](https://pypi.org/project/failures-analysis/)
+[![Actions Status](https://github.com/F-Secure/failures-analysis/workflows/CICD/badge.svg)](https://github.com/F-Secure/failures-analysis/actions)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Tests failure analysis package provides fast and reliable way to find and group similar failures in your CI/CD
