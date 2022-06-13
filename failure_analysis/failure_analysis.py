@@ -118,6 +118,7 @@ def run(path: str):
         temp = df[df["failure1"] == failure]
         temp = temp.sort_values("cos", ascending=True)
         temp = pd.pivot_table(temp, index=["suitename2", "testname2", "filename2"])
+        pd.set_option("display.max_rows", temp.shape[0] + 1)
         print(temp)
 
 
