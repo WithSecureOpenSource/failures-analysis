@@ -79,10 +79,10 @@ def run(path: str):
         print("NO FAILURES FOUND")
         sys.exit(0)
 
-    testnames = list(itertools.permutations(testname, 2))
-    failures = list(itertools.permutations(failure, 2))
-    filenames = list(itertools.permutations(filename, 2))
-    classnames = list(itertools.permutations(classname, 2))
+    testnames = list(itertools.combinations(testname, 2))
+    failures = list(itertools.combinations(failure, 2))
+    filenames = list(itertools.combinations(filename, 2))
+    classnames = list(itertools.combinations(classname, 2))
     coss = score_failures(failures)
 
     items = [
