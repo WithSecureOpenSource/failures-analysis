@@ -56,13 +56,12 @@ def cosine_sim_vectors(vec1, vec2):
 def score_failures(failures):
     """takes in a list of tuples of failures and returns a lists of cosine similarity.
 
-    coss, a list of cosine similiarity scores between two items in a tuple
+    coss, a list of cosine similarity scores between two items in a tuple
     """
     coss = []
+    count_vectorizer = CountVectorizer()
     for failure in failures:
-        str1 = failure[0]
-        str2 = failure[1]
-        vectorizer = CountVectorizer().fit_transform([str1, str2])
+        vectorizer = count_vectorizer.fit_transform(failure)
         vectors = vectorizer.toarray()
         cos = cosine_sim_vectors(vectors[0], vectors[1])
         coss.append(cos)
