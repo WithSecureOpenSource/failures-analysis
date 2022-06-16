@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.4 (2022-06-16)
+### Fix
+* Fix for printing all rows ([`2fd01e3`](https://github.com/F-Secure/failures-analysis/commit/2fd01e3b4c822947b4c2227fdac81d060ce0ca8a))
+* Further improvent to the timeout issue ([`d4236c5`](https://github.com/F-Secure/failures-analysis/commit/d4236c5e2ac929511d4eaafeb29a15f6f570b2fd))
+
 ## v1.0.3 (2022-06-07)
 ### Fix
 * Remove not used dependecies from pyproject.toml ([`e352da4`](https://github.com/F-Secure/failures-analysis/commit/e352da4b981d3391ce02da901c8665875b95ca06))
