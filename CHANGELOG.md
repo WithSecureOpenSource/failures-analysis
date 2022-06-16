@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.5 (2022-06-16)
+### Fix
+* Small performance improvement ([`8d85431`](https://github.com/F-Secure/failures-analysis/commit/8d854313105cc1e10bc54429d4f6c1acaf4749be))
+
 ## v1.0.4 (2022-06-16)
 ### Fix
 * Fix for printing all rows ([`2fd01e3`](https://github.com/F-Secure/failures-analysis/commit/2fd01e3b4c822947b4c2227fdac81d060ce0ca8a))
