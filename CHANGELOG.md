@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.2 (2022-06-17)
+### Fix
+* Return support for Python 3.8 ([`6bc2b1b`](https://github.com/F-Secure/failures-analysis/commit/6bc2b1b0f356bfc7fbd3b3c7297f64c4ccbce105))
+
 ## v2.0.1 (2022-06-17)
 ### Fix
 * If Drain3 is used, display original error ([`e75dfaa`](https://github.com/F-Secure/failures-analysis/commit/e75dfaac0ee98675b6aabf0708f111625dfc7e3f))
