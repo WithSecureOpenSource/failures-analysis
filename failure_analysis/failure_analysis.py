@@ -47,7 +47,7 @@ def parse_xml(path: Path):
 
 
 def cosine_sim_vectors(vec1, vec2):
-    """Takes in 2 vectors and returns a cosine similiarity between two vectors."""
+    """Takes in 2 vectors and returns a cosine similarity between two vectors."""
     vec1 = vec1.reshape(1, -1)
     vec2 = vec2.reshape(1, -1)
     return cosine_similarity(vec1, vec2)[0][0]
