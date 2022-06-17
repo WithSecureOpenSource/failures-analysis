@@ -45,6 +45,12 @@ def test_console_output(capsys):
     verify(captured.out)
 
 
+def test_console_output_with_drain(capsys):
+    run(str(XUNIT_FILES_DIR), MIN_THRESHOLD, "", False)
+    captured = capsys.readouterr()
+    verify(captured.out)
+
+
 def test_no_failures(capsys):
     with pytest.raises(SystemExit):
         with tempfile.TemporaryDirectory() as temp_folder:
