@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.1 (2022-06-17)
+### Fix
+* If Drain3 is used, display original error ([`e75dfaa`](https://github.com/F-Secure/failures-analysis/commit/e75dfaac0ee98675b6aabf0708f111625dfc7e3f))
+
 ## v2.0.0 (2022-06-17)
 ### Feature
 * Use Drain3 to template failure messages ([`efe9538`](https://github.com/F-Secure/failures-analysis/commit/efe9538f8131d918ab88230737d811907af045cc))
