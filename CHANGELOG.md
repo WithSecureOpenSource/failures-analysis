@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.0 (2022-06-17)
+### Feature
+* Add possibility to define minimum similarity ([`7bfa099`](https://github.com/F-Secure/failures-analysis/commit/7bfa09933188f35c7fe084a328acfabbc05ff009))
+
 ## v1.0.5 (2022-06-16)
 ### Fix
 * Small performance improvement ([`8d85431`](https://github.com/F-Secure/failures-analysis/commit/8d854313105cc1e10bc54429d4f6c1acaf4749be))
