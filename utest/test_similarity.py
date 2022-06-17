@@ -18,21 +18,7 @@ FAIL_02_FILE_NAME = "failing_02_.xml"
 PASS_01_FILE_PATH = XUNIT_FILES_DIR / PASS_01_FILE_NAME
 FAIL_01_FILE_PATH = XUNIT_FILES_DIR / FAIL_01_FILE_NAME
 FAIL_02_FILE_PATH = XUNIT_FILES_DIR / FAIL_02_FILE_NAME
-EXPECTED_OUTPUT_START = """============== FAILURE START =================
-def test_02():
->       assert False
-E       assert False
-
-
-"""
-
-EXPECTED_OUTPUT_END = """============== FAILURE END =================
-                                         cos
-suitename2    testname2 filename2                  
-tests.test_me test_02   failing_01_.xml  1.0
-                        failing_02_.xml  1.0
-                        failing_03_.xml  1.0
-"""  # noqa: W291
+MIN_THRESHOLD = 0.80
 
 
 def test_cosine_sim_vectors():
@@ -50,11 +36,11 @@ def test_score_failures():
 
 def test_invalid_path():
     with pytest.raises(IOError):
-        run("not/here")
+        run("not/here", MIN_THRESHOLD)
 
 
 def test_console_output(capsys):
-    run(str(XUNIT_FILES_DIR))
+    run(str(XUNIT_FILES_DIR), MIN_THRESHOLD)
     captured = capsys.readouterr()
     verify(captured.out)
 
@@ -63,13 +49,13 @@ def test_no_failures(capsys):
     with pytest.raises(SystemExit):
         with tempfile.TemporaryDirectory() as temp_folder:
             shutil.copy(PASS_01_FILE_PATH, Path(temp_folder) / PASS_01_FILE_NAME)
-            run(temp_folder)
+            run(temp_folder, MIN_THRESHOLD)
             captured = capsys.readouterr()
             assert captured.out == "NO FAILURES FOUND"
 
     with pytest.raises(SystemExit):
         with tempfile.TemporaryDirectory() as temp_folder:
-            run(temp_folder)
+            run(temp_folder, MIN_THRESHOLD)
             captured = capsys.readouterr()
             assert captured.out == "NO FAILURES FOUND"
 
@@ -81,6 +67,6 @@ def test_finding_files(capsys):
         shutil.copy(PASS_01_FILE_PATH, folder_match_filter_patters / PASS_01_FILE_NAME)
         shutil.copy(FAIL_01_FILE_PATH, folder_match_filter_patters / FAIL_01_FILE_NAME)
         shutil.copy(FAIL_02_FILE_PATH, folder_match_filter_patters / FAIL_02_FILE_NAME)
-        run(temp_folder)
+        run(temp_folder, MIN_THRESHOLD)
         captured = capsys.readouterr()
         verify(captured.out)

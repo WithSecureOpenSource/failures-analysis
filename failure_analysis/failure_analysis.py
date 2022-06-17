@@ -47,13 +47,13 @@ def parse_xml(path: Path):
 
 
 def cosine_sim_vectors(vec1, vec2):
-    """Takes in 2 vectors and returns a cosine similiarity between two vectors."""
+    """Takes in 2 vectors and returns a cosine similarity between two vectors."""
     vec1 = vec1.reshape(1, -1)
     vec2 = vec2.reshape(1, -1)
     return cosine_similarity(vec1, vec2)[0][0]
 
 
-def score_failures(failures):
+def score_failures(failures: list):
     """takes in a list of tuples of failures and returns a lists of cosine similarity.
 
     coss, a list of cosine similarity scores between two items in a tuple
@@ -68,7 +68,7 @@ def score_failures(failures):
     return coss
 
 
-def run(path: str):
+def run(path: str, min_threshold: int):
     xml_path = Path(path)
     if not xml_path.is_dir():
         raise IOError(f"{path} should be directory but it was not.")
@@ -109,6 +109,7 @@ def run(path: str):
         "failure1",
         "failure2",
     ]
+    df = df[df["cos"] >= min_threshold]
     df = df[["failure1", "suitename2", "testname2", "filename2", "cos"]]
     for failure in np.unique(df["failure1"].values):
         print("============== FAILURE START =================")
@@ -123,12 +124,23 @@ def run(path: str):
 
 def main():
     parser = argparse.ArgumentParser(description="Process xunit and group similar failures from xunit failures.")
+    parser.add_argument(
+        "--min",
+        "-M",
+        type=int,
+        help=(
+            "Minimum threshold when failures are considered to be same. Default to 80, when Cos similarity is 0.80 "
+            "or more error are considered to be same."
+        ),
+        default=0.80,
+    )
     parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
     args = parser.parse_args()
     path = args.path
+    min_threshold = args.min
     if not Path(path).is_dir():
         raise ValueError(f"{path} is not directory.")
-    run(path)
+    run(path, min_threshold)
 
 
 if __name__ == "__main__":
