@@ -13,6 +13,7 @@ import argparse
 import itertools
 import os
 import sys
+from copy import deepcopy
 from os.path import dirname
 from pathlib import Path
 
@@ -86,6 +87,7 @@ def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
     if not xml_path.is_dir():
         raise IOError(f"{path} should be directory but it was not.")
     failure, testname, filename, classname = parse_xml(xml_path)
+    failure_display = deepcopy(failure)
     if not drain_off:
         failure = template_failures(failure, drain_ini)
 
@@ -95,6 +97,8 @@ def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
 
     testnames = list(itertools.combinations(testname, 2))
     failures = list(itertools.combinations(failure, 2))
+    failure_display = itertools.combinations(failure_display, 2)
+    failure_display = [fd[0] for fd in failure_display]
     filenames = list(itertools.combinations(filename, 2))
     classnames = list(itertools.combinations(classname, 2))
     coss = score_failures(failures)
@@ -124,11 +128,12 @@ def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
         "failure1",
         "failure2",
     ]
+    df["failure_display"] = failure_display
     df = df[df["cos"] >= min_threshold]
-    df = df[["failure1", "suitename2", "testname2", "filename2", "cos"]]
+    df = df[["failure1", "suitename2", "testname2", "filename2", "cos", "failure_display"]]
     for failure in np.unique(df["failure1"].values):
         print("============== FAILURE START =================")
-        print(failure)
+        print(df.loc[df["failure1"] == failure, "failure_display"].iloc[0])
         print("============== FAILURE END =================")
         temp = df[df["failure1"] == failure]
         temp = temp.sort_values("cos", ascending=True)
