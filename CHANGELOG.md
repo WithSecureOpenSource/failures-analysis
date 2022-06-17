@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.0 (2022-06-17)
+### Feature
+* Use Drain3 to template failure messages ([`efe9538`](https://github.com/F-Secure/failures-analysis/commit/efe9538f8131d918ab88230737d811907af045cc))
+
+### Breaking
+* FIll use by default Drain3 to template error messages  ([`efe9538`](https://github.com/F-Secure/failures-analysis/commit/efe9538f8131d918ab88230737d811907af045cc))
+
 ## v1.1.0 (2022-06-17)
 ### Feature
 * Add possibility to define minimum similarity ([`7bfa099`](https://github.com/F-Secure/failures-analysis/commit/7bfa09933188f35c7fe084a328acfabbc05ff009))
