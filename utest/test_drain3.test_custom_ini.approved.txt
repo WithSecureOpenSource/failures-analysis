@@ -1,0 +1,1 @@
+["def test_02(): > assert 'connected to <IP_ADDRESS>' == 'connected to <IP_ADDRESS>' E assert False tests\\test_me.py:6: AssertionError"]
