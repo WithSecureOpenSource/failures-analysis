@@ -36,11 +36,11 @@ def test_score_failures():
 
 def test_invalid_path():
     with pytest.raises(IOError):
-        run("not/here", MIN_THRESHOLD)
+        run("not/here", MIN_THRESHOLD, "", True)
 
 
 def test_console_output(capsys):
-    run(str(XUNIT_FILES_DIR), MIN_THRESHOLD)
+    run(str(XUNIT_FILES_DIR), MIN_THRESHOLD, "", True)
     captured = capsys.readouterr()
     verify(captured.out)
 
@@ -49,13 +49,13 @@ def test_no_failures(capsys):
     with pytest.raises(SystemExit):
         with tempfile.TemporaryDirectory() as temp_folder:
             shutil.copy(PASS_01_FILE_PATH, Path(temp_folder) / PASS_01_FILE_NAME)
-            run(temp_folder, MIN_THRESHOLD)
+            run(temp_folder, MIN_THRESHOLD, "", False)
             captured = capsys.readouterr()
             assert captured.out == "NO FAILURES FOUND"
 
     with pytest.raises(SystemExit):
         with tempfile.TemporaryDirectory() as temp_folder:
-            run(temp_folder, MIN_THRESHOLD)
+            run(temp_folder, MIN_THRESHOLD, "", True)
             captured = capsys.readouterr()
             assert captured.out == "NO FAILURES FOUND"
 
@@ -67,6 +67,6 @@ def test_finding_files(capsys):
         shutil.copy(PASS_01_FILE_PATH, folder_match_filter_patters / PASS_01_FILE_NAME)
         shutil.copy(FAIL_01_FILE_PATH, folder_match_filter_patters / FAIL_01_FILE_NAME)
         shutil.copy(FAIL_02_FILE_PATH, folder_match_filter_patters / FAIL_02_FILE_NAME)
-        run(temp_folder, MIN_THRESHOLD)
+        run(temp_folder, MIN_THRESHOLD, "", True)
         captured = capsys.readouterr()
         verify(captured.out)

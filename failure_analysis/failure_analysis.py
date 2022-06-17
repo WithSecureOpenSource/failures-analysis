@@ -13,10 +13,13 @@ import argparse
 import itertools
 import os
 import sys
+from os.path import dirname
 from pathlib import Path
 
 import numpy as np
 import pandas as pd  # type: ignore
+from drain3 import TemplateMiner  # type: ignore
+from drain3.template_miner_config import TemplateMinerConfig  # type: ignore
 from lxml import etree  # type: ignore
 from sklearn.feature_extraction.text import CountVectorizer  # type: ignore
 from sklearn.metrics.pairwise import cosine_similarity  # type: ignore
@@ -68,11 +71,23 @@ def score_failures(failures: list):
     return coss
 
 
-def run(path: str, min_threshold: int):
+def template_failures(failures: list, drain_config: str) -> list:
+    config = TemplateMinerConfig()
+    if drain_config:
+        config.load(drain_config)
+    else:
+        config.load(dirname(__file__) + "/drain3.ini")
+    template_miner = TemplateMiner(config=config)
+    return [template_miner.add_log_message(failure).get("template_mined") for failure in failures]
+
+
+def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
     xml_path = Path(path)
     if not xml_path.is_dir():
         raise IOError(f"{path} should be directory but it was not.")
     failure, testname, filename, classname = parse_xml(xml_path)
+    if not drain_off:
+        failure = template_failures(failure, drain_ini)
 
     if len(failure) == 0:
         print("NO FAILURES FOUND")
@@ -134,13 +149,31 @@ def main():
         ),
         default=0.80,
     )
+    parser.add_argument(
+        "--drain",
+        "-D",
+        type=str,
+        help=(
+            "Path to drain.ini file, which is used to configure Drain3 templating. "
+            "If not given default templating will be used, unless --drain-off argument is given."
+        ),
+        default="",
+    )
+    parser.add_argument(
+        "--drain-off",
+        help="Turns drain templating off and will use error text as is. By default drain is enabled.",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+    )
     parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
     args = parser.parse_args()
     path = args.path
     min_threshold = args.min
+    drain_ini = args.drain
+    drain_off = args.drain_off
     if not Path(path).is_dir():
         raise ValueError(f"{path} is not directory.")
-    run(path, min_threshold)
+    run(path, min_threshold, drain_ini, drain_off)
 
 
 if __name__ == "__main__":
