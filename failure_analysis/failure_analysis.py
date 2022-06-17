@@ -167,7 +167,7 @@ def main():
     parser.add_argument(
         "--drain-off",
         help="Turns drain templating off and will use error text as is. By default drain is enabled.",
-        action=argparse.BooleanOptionalAction,
+        action="store_false",
         default=False,
     )
     parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
