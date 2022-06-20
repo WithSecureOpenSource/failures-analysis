@@ -16,7 +16,7 @@ test = ["pytest"]
 
 [[package]]
 name = "approvaltests"
-version = "5.2.0"
+version = "5.3.0"
 description = "Assertion/verification library to aid testing"
 category = "dev"
 optional = false
@@ -920,7 +920,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytest-
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2a2945d5dabbc2ebdaa93a9079723d4cf8d3b9afcfc1f24f348cd16b5e111f99"
+content-hash = "46afec1658b5e3d2ddef2847585c8973fbdecde92f22e3c6f7a1acf2eb950a08"
 
 [metadata.files]
 allpairspy = [
@@ -928,8 +928,8 @@ allpairspy = [
     {file = "allpairspy-2.5.0.tar.gz", hash = "sha256:9358484c91abe74ba18daf9d6d6904c5be7cc8818397d05248c9d336023c28b1"},
 ]
 approvaltests = [
-    {file = "approvaltests-5.2.0-py3-none-any.whl", hash = "sha256:ecc11325e23e647079c01795d9e482570244c893fce89dc7baa8676721796423"},
-    {file = "approvaltests-5.2.0.tar.gz", hash = "sha256:a3a6bd2abb4e675d297af6949388dd08ad5d9617db81d89ffa7abb9dbce45b8f"},
+    {file = "approvaltests-5.3.0-py3-none-any.whl", hash = "sha256:339874a62baad92c591cc338182aadf39b8f03cdd6bf65e49cde595388927bb0"},
+    {file = "approvaltests-5.3.0.tar.gz", hash = "sha256:84f219126aca77e29c07357b77534433ee6308cb0bdb0c7ec2e34b85f4957c6c"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
