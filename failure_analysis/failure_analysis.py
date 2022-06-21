@@ -135,7 +135,7 @@ def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
         print("============== FAILURE START =================")
         try:
             print(df.loc[df["failure1"] == failure, "failure_display"].iloc[0])
-        except:
+        except UnicodeEncodeError:
             print(
                 df.loc[df["failure1"] == failure, "failure_display"].iloc[0].encode("ascii", "ignore").decode("utf - 8")
             )
