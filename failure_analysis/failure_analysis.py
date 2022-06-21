@@ -133,7 +133,12 @@ def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
     df = df[["failure1", "suitename2", "testname2", "filename2", "cos", "failure_display"]]
     for failure in np.unique(df["failure1"].values):
         print("============== FAILURE START =================")
-        print(df.loc[df["failure1"] == failure, "failure_display"].iloc[0])
+        try:
+            print(df.loc[df["failure1"] == failure, "failure_display"].iloc[0])
+        except:
+            print(
+                df.loc[df["failure1"] == failure, "failure_display"].iloc[0].encode("ascii", "ignore").decode("utf - 8")
+            )
         print("============== FAILURE END =================")
         temp = df[df["failure1"] == failure]
         temp = temp.sort_values("cos", ascending=True)
