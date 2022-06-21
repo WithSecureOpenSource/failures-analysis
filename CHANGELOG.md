@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.3 (2022-06-21)
+### Fix
+* Fix for linting ([`e150797`](https://github.com/F-Secure/failures-analysis/commit/e150797f6a8ef107e8805a8c862f47e46b306884))
+* Fix for printing the emojis in the failure message ([`944908a`](https://github.com/F-Secure/failures-analysis/commit/944908a125a20a324a7deadd9205415e825db76b))
+
 ## v2.0.2 (2022-06-17)
 ### Fix
 * Return support for Python 3.8 ([`6bc2b1b`](https://github.com/F-Secure/failures-analysis/commit/6bc2b1b0f356bfc7fbd3b3c7297f64c4ccbce105))
