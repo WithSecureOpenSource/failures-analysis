@@ -43,6 +43,7 @@ mypy = "^0.961"
 flake8 = "^4.0.1"
 python-semantic-release = "7.28.1"
 approvaltests = "^5.3.0"
+pytest-mock = "^3.8.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -59,3 +60,13 @@ version_toml  = [
 ]
 branch = "main"
 build_command = "poetry build"
+
+[tool.pytest.ini_options]
+console_output_style = "count"
+log_cli = true
+log_cli_level = "DEBUG"
+log_date_format = "%Y-%m-%d %H:%M:%S"
+log_cli_format = "%(asctime)s %(levelname)s %(message)s"
+log_file = "utest/output/pytest-logs.txt"
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_file_level = "DEBUG"

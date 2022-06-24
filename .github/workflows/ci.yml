@@ -41,6 +41,11 @@ jobs:
         run: poetry run invoke lint
       - name: Run tests
         run: poetry run invoke test
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: ApprovalTest results
+          path: utest/*.txt
 
   release:
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'

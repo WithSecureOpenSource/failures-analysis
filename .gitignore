@@ -18,3 +18,4 @@ build
 dist
 *.json
 *.csv
+utest/output

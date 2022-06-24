@@ -1,0 +1,4 @@
+INFO     drain3.template_miner:template_miner.py:37 Starting Drain3 template miner
+INFO     drain3.template_miner:template_miner.py:37 Starting Drain3 template miner
+INFO     drain3.template_miner:template_miner.py:37 Starting Drain3 template miner
+INFO     drain3.template_miner:template_miner.py:37 Starting Drain3 template miner
