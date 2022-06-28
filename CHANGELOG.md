@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.4 (2022-06-28)
+### Fix
+* Updating README ([`c47c26d`](https://github.com/F-Secure/failures-analysis/commit/c47c26da284a15d2a9b177ed47bb68755064d0b7))
+
 ## v2.0.3 (2022-06-21)
 ### Fix
 * Fix for linting ([`e150797`](https://github.com/F-Secure/failures-analysis/commit/e150797f6a8ef107e8805a8c862f47e46b306884))
