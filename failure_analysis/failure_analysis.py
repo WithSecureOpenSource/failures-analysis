@@ -82,7 +82,7 @@ def template_failures(failures: list, drain_config: str) -> list:
     return [template_miner.add_log_message(failure).get("template_mined") for failure in failures]
 
 
-def run(path: str, min_threshold: int, drain_ini: str, drain_off: bool):
+def run(path: str, min_threshold: float, drain_ini: str, drain_off: bool):
     xml_path = Path(path)
     if not xml_path.is_dir():
         raise IOError(f"{path} should be directory but it was not.")

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuites>
-	<testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="1.188" timestamp="2022-05-30T15:42:18.012345" hostname="PC">
+	<testsuite name="pytest" errors="0" failures="1" skipped="0" tests="2" time="1.188" timestamp="2022-05-30T15:55:18.012345" hostname="PC">
 		<testcase classname="tests.test_me" name="test_01" file="tests\test_me.py" line="0" time="0.025"/>
 		<testcase classname="tests.test_me" name="test_02" file="tests\test_me.py" line="4" time="0.014">
 			<failure message="assert False">def test_02():
-&gt;       raise ValueError("This is an error 0987")
+&gt;       raise ValueError("This is an error 12345")
 E       ValueError
 
 
