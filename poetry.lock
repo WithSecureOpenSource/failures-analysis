@@ -212,7 +212,7 @@ setuptools_scm = "*"
 
 [[package]]
 name = "drain3"
-version = "0.9.10"
+version = "0.9.11"
 description = "Persistent & streaming log template miner"
 category = "main"
 optional = false
@@ -961,7 +961,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "0a9bcefdcc6fd85f014b0e21e43d92698800685cb906e065634b8ea5e10e4256"
+content-hash = "b118de9a5906f8be36c0a0e845c1df188d92b460ff868a3b1ca637514c78e25f"
 
 [metadata.files]
 allpairspy = [
@@ -1121,7 +1121,7 @@ dotty-dict = [
     {file = "dotty_dict-1.3.0.tar.gz", hash = "sha256:eb0035a3629ecd84397a68f1f42f1e94abd1c34577a19cd3eacad331ee7cbaf0"},
 ]
 drain3 = [
-    {file = "drain3-0.9.10.tar.gz", hash = "sha256:2c9c5466f5d9af3d1f273c7ff4cc6995df363df091a538c12fd070cb035f7e4f"},
+    {file = "drain3-0.9.11.tar.gz", hash = "sha256:9ab4b1407fad74f56554ae371ef019c3c7985861631f4bab46a0e92585125f75"},
 ]
 empty-files = [
     {file = "empty-files-0.0.3.tar.gz", hash = "sha256:87277db100a3bfdafc2ba18f6094cd37090e257058fb1c0b15873a89e1003149"},
