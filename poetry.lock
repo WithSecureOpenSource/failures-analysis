@@ -16,7 +16,7 @@ test = ["pytest"]
 
 [[package]]
 name = "approvaltests"
-version = "6.0.0"
+version = "6.1.0"
 description = "Assertion/verification library to aid testing"
 category = "dev"
 optional = false
@@ -977,7 +977,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "013ec63921e49f209b05eda81360b0e57e144b917a945b8eba26ea0db460c7a1"
+content-hash = "4a5d21e1d70f9bd83ca0bc5ba4fd997eed1bf79df5c58bbf5f65e496710e2bae"
 
 [metadata.files]
 allpairspy = [
@@ -985,8 +985,8 @@ allpairspy = [
     {file = "allpairspy-2.5.0.tar.gz", hash = "sha256:9358484c91abe74ba18daf9d6d6904c5be7cc8818397d05248c9d336023c28b1"},
 ]
 approvaltests = [
-    {file = "approvaltests-6.0.0-py3-none-any.whl", hash = "sha256:7ea685400c11d63ca99459b3446ddd0f3afcfbe326e9db5e42d268433c342df2"},
-    {file = "approvaltests-6.0.0.tar.gz", hash = "sha256:910a0f5646cc58ad5fe03ea85e648de61704af125a59a449b994c888fd1b2faa"},
+    {file = "approvaltests-6.1.0-py3-none-any.whl", hash = "sha256:cf0ac5140149d1556a385ba78123b5ce0d009036f83092eada0ab33e1d7fc062"},
+    {file = "approvaltests-6.1.0.tar.gz", hash = "sha256:6b4676ccbbd10b05efe58f975ce7b0eb884fff405881975e229afc91ae9e927e"},
 ]
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
