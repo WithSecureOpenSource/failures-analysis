@@ -15,8 +15,16 @@ release = ["releasecmd (>=0.0.18,<0.1.0)"]
 test = ["pytest"]
 
 [[package]]
+name = "approval-utilities"
+version = "7.0.1"
+description = "Utilities for your production code that work well with approvaltests"
+category = "dev"
+optional = false
+python-versions = ">=3.6.1"
+
+[[package]]
 name = "approvaltests"
-version = "6.0.0"
+version = "7.0.1"
 description = "Assertion/verification library to aid testing"
 category = "dev"
 optional = false
@@ -24,6 +32,7 @@ python-versions = ">=3.6.1"
 
 [package.dependencies]
 allpairspy = ">=2.1.0"
+approval-utilities = "7.0.1"
 beautifulsoup4 = ">=4.4.0"
 empty-files = ">=0.0.3"
 mrjob = ">=0.7.4"
@@ -977,16 +986,20 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "013ec63921e49f209b05eda81360b0e57e144b917a945b8eba26ea0db460c7a1"
+content-hash = "d593fbadfb1195b98cf437d1b263fd251ce930a571e07674efd422c63e792818"
 
 [metadata.files]
 allpairspy = [
     {file = "allpairspy-2.5.0-py2.py3-none-any.whl", hash = "sha256:66dbcb30c22a2c73e1cccae9ae7093f8e18bdf542e4ba2864ce822463735b5b4"},
     {file = "allpairspy-2.5.0.tar.gz", hash = "sha256:9358484c91abe74ba18daf9d6d6904c5be7cc8818397d05248c9d336023c28b1"},
 ]
+approval-utilities = [
+    {file = "approval_utilities-7.0.1-py3-none-any.whl", hash = "sha256:c40f6e78a182312d95d2d08364801e72e02f8ffbc535ef5fea159ee9f3b220c9"},
+    {file = "approval_utilities-7.0.1.tar.gz", hash = "sha256:773edb25704148dacb7838a45090fa0ff6698f15c95af842c6007782dbce980b"},
+]
 approvaltests = [
-    {file = "approvaltests-6.0.0-py3-none-any.whl", hash = "sha256:7ea685400c11d63ca99459b3446ddd0f3afcfbe326e9db5e42d268433c342df2"},
-    {file = "approvaltests-6.0.0.tar.gz", hash = "sha256:910a0f5646cc58ad5fe03ea85e648de61704af125a59a449b994c888fd1b2faa"},
+    {file = "approvaltests-7.0.1-py3-none-any.whl", hash = "sha256:e9b21db03481d6637eefe0d3b23c2350c9dca9bd1ba82c82b394a0d095faa82f"},
+    {file = "approvaltests-7.0.1.tar.gz", hash = "sha256:87f4c0147e9114a3bfd81e12dc8ea7ae8848ddf152b7eb27aa25cf0a74419890"},
 ]
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
