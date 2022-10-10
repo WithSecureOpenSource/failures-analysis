@@ -16,7 +16,7 @@ test = ["pytest"]
 
 [[package]]
 name = "approval-utilities"
-version = "7.0.1"
+version = "7.1.0"
 description = "Utilities for your production code that work well with approvaltests"
 category = "dev"
 optional = false
@@ -24,7 +24,7 @@ python-versions = ">=3.6.1"
 
 [[package]]
 name = "approvaltests"
-version = "7.0.1"
+version = "7.1.0"
 description = "Assertion/verification library to aid testing"
 category = "dev"
 optional = false
@@ -32,7 +32,7 @@ python-versions = ">=3.6.1"
 
 [package.dependencies]
 allpairspy = ">=2.1.0"
-approval-utilities = "7.0.1"
+approval-utilities = "7.1.0"
 beautifulsoup4 = ">=4.4.0"
 empty-files = ">=0.0.3"
 mrjob = ">=0.7.4"
@@ -986,7 +986,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "29e16ca140815e52bf4108105246c0f3d561a64388be9961b34d139d9c23af1d"
+content-hash = "72c5f5b05fc19d9f99fe8d18fae1291752f6dfde398f3828cb2e27e54f53a52b"
 
 [metadata.files]
 allpairspy = [
@@ -994,12 +994,12 @@ allpairspy = [
     {file = "allpairspy-2.5.0.tar.gz", hash = "sha256:9358484c91abe74ba18daf9d6d6904c5be7cc8818397d05248c9d336023c28b1"},
 ]
 approval-utilities = [
-    {file = "approval_utilities-7.0.1-py3-none-any.whl", hash = "sha256:c40f6e78a182312d95d2d08364801e72e02f8ffbc535ef5fea159ee9f3b220c9"},
-    {file = "approval_utilities-7.0.1.tar.gz", hash = "sha256:773edb25704148dacb7838a45090fa0ff6698f15c95af842c6007782dbce980b"},
+    {file = "approval_utilities-7.1.0-py3-none-any.whl", hash = "sha256:e6c3a1704faf41c6e7971f36a5636c775e82fb89550860ba86cb713c8d827542"},
+    {file = "approval_utilities-7.1.0.tar.gz", hash = "sha256:6f3e086beceaac18714cb771fabb2b17f65acfb9e8f3387f8c0f64cfa097d664"},
 ]
 approvaltests = [
-    {file = "approvaltests-7.0.1-py3-none-any.whl", hash = "sha256:e9b21db03481d6637eefe0d3b23c2350c9dca9bd1ba82c82b394a0d095faa82f"},
-    {file = "approvaltests-7.0.1.tar.gz", hash = "sha256:87f4c0147e9114a3bfd81e12dc8ea7ae8848ddf152b7eb27aa25cf0a74419890"},
+    {file = "approvaltests-7.1.0-py3-none-any.whl", hash = "sha256:e8ff9c6586755464f8d41fd01e61303c6507b8b21d6f5379c6b481b6f930c70d"},
+    {file = "approvaltests-7.1.0.tar.gz", hash = "sha256:d452c39b7f99bad3c27ca230393814134e844c379a835c0d8002ce542d68b869"},
 ]
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
