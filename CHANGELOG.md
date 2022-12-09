@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v2.1.0 (2022-12-09)
+### Feature
+* Remove pandas warning ([`913841f`](https://github.com/F-Secure/failures-analysis/commit/913841febbca390374f170dd18d1b4cb565c94da))
+* Update deps ([`481bd01`](https://github.com/F-Secure/failures-analysis/commit/481bd011948f37caeef838cb93dc92813d48745a))
+
 ## v2.0.4 (2022-06-28)
 ### Fix
 * Updating README ([`c47c26d`](https://github.com/F-Secure/failures-analysis/commit/c47c26da284a15d2a9b177ed47bb68755064d0b7))
