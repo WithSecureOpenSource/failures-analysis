@@ -142,7 +142,7 @@ def run(path: str, min_threshold: float, drain_ini: str, drain_off: bool):
         print("============== FAILURE END =================")
         temp = df[df["failure1"] == failure]
         temp = temp.sort_values("cos", ascending=True)
-        temp = pd.pivot_table(temp, index=["suitename2", "testname2", "filename2"])
+        temp = pd.pivot_table(temp, values=["cos"], index=["suitename2", "testname2", "filename2"])
         pd.set_option("display.max_rows", temp.shape[0] + 1)
         print(temp)
 
