@@ -22,36 +22,37 @@ test = ["pytest"]
 
 [[package]]
 name = "approval-utilities"
-version = "7.3.0"
+version = "8.0.0"
 description = "Utilities for your production code that work well with approvaltests"
 category = "dev"
 optional = false
 python-versions = ">=3.6.1"
 files = [
-    {file = "approval_utilities-7.3.0-py3-none-any.whl", hash = "sha256:86ef37aadaca8a4666b933aae72ffe9822306f1945ad4663c1b6fd1f07b115da"},
-    {file = "approval_utilities-7.3.0.tar.gz", hash = "sha256:4771664eaf61de236fcef13a7bb8b4d4569bcf61949e80c408120dd4407f0b45"},
+    {file = "approval_utilities-8.0.0-py3-none-any.whl", hash = "sha256:dbe0bc817d9523b6bca9bd7cbdb4c25c4ad782b497ff801b47e367f080ebe151"},
+    {file = "approval_utilities-8.0.0.tar.gz", hash = "sha256:09bc53dd85d0721cd3cb56eb8a64e5d978589dfd6b63184daf9947c8c82d1645"},
 ]
 
 [[package]]
 name = "approvaltests"
-version = "7.3.0"
+version = "8.0.0"
 description = "Assertion/verification library to aid testing"
 category = "dev"
 optional = false
 python-versions = ">=3.6.1"
 files = [
-    {file = "approvaltests-7.3.0-py3-none-any.whl", hash = "sha256:0a86899810ee9c1ae1689744c361aaf4748054dd971edcfcbaba048c0b464460"},
-    {file = "approvaltests-7.3.0.tar.gz", hash = "sha256:2d4aef653a0a35b164f14cf7488cd02b043ce2a4ac681891f8aedbdfd8d6cd02"},
+    {file = "approvaltests-8.0.0-py3-none-any.whl", hash = "sha256:167cf53a3f1d44c9d2f1a694d09bd649fa46f928a4a184f48c5a46ba3c1d58e0"},
+    {file = "approvaltests-8.0.0.tar.gz", hash = "sha256:936e0627ea18a222bc62ae3b1482356b55b83856579ffda0cd93f468b52bcb52"},
 ]
 
 [package.dependencies]
 allpairspy = ">=2.1.0"
-approval-utilities = "7.3.0"
+approval-utilities = "8.0.0"
 beautifulsoup4 = ">=4.4.0"
 empty-files = ">=0.0.3"
 mrjob = ">=0.7.4"
 pyperclip = ">=1.5.29"
 pytest = ">=4.0.0"
+typing-extensions = ">=3.6.2"
 
 [[package]]
 name = "attrs"
@@ -1604,4 +1605,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "30e27802f9d0ad0630a0bd30d519c8b9b37dc9e863edcdf7bdee7d4dfbdbdfa5"
+content-hash = "dd96fae71acf0dbcf1208f6820da8790b537095bae9f2132eed237897af17bff"
