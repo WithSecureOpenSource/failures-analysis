@@ -44,7 +44,7 @@ isort = "^5.11.4"
 invoke = "^1.7.3"
 mypy = "^0.991"
 flake8 = "^5.0.4"
-python-semantic-release = "7.32.2"
+python-semantic-release = "7.33.0"
 approvaltests = "^8.1.0"
 pytest-mock = "^3.10.0"
 
