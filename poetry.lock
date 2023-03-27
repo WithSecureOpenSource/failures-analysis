@@ -22,31 +22,31 @@ test = ["pytest"]
 
 [[package]]
 name = "approval-utilities"
-version = "8.2.0"
+version = "8.2.5"
 description = "Utilities for your production code that work well with approvaltests"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "approval_utilities-8.2.0-py3-none-any.whl", hash = "sha256:b11bcc6fa17dc38df48a25712fa7bfd0e2ed5f65276168acb5fa095c8ac743b8"},
-    {file = "approval_utilities-8.2.0.tar.gz", hash = "sha256:9bbcd3a2c15b46fea178e102942630467aafd441bcc0c31f74b63e90e4120165"},
+    {file = "approval_utilities-8.2.5-py3-none-any.whl", hash = "sha256:2aaf858931a5919ea1be2e7ec1ecaed3a89e1a16ee1feaefe95741979534fd27"},
+    {file = "approval_utilities-8.2.5.tar.gz", hash = "sha256:f19bb14b3e2a73fb8fd7f317842228c479fbe55e29c40b62550f72e0eeb9174d"},
 ]
 
 [[package]]
 name = "approvaltests"
-version = "8.2.0"
+version = "8.2.5"
 description = "Assertion/verification library to aid testing"
 category = "dev"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "approvaltests-8.2.0-py3-none-any.whl", hash = "sha256:e76915a103e6fafd4e4675fed9f273affaaad58d3140c6a35ac9d49622fab981"},
-    {file = "approvaltests-8.2.0.tar.gz", hash = "sha256:d8abc79e59b70703d6964418d4071e1ad23ee423dd9110e5a9e980ef959e0f11"},
+    {file = "approvaltests-8.2.5-py3-none-any.whl", hash = "sha256:d7723259252e5630e713918a4d98d0d1bf146a7fb3116aaff074c7193c8cca8a"},
+    {file = "approvaltests-8.2.5.tar.gz", hash = "sha256:3427077814ddf64f691cb4043a9abf7f98cac4c3b2ea0e0afd243c9484d5ab8d"},
 ]
 
 [package.dependencies]
 allpairspy = ">=2.1.0"
-approval-utilities = "8.2.0"
+approval-utilities = "8.2.5"
 beautifulsoup4 = ">=4.4.0"
 empty-files = ">=0.0.3"
 mrjob = ">=0.7.4"
@@ -1621,4 +1621,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "77fbcd260a249deb8e7788cef3f784186c6e725af54f976adc35fd79b814ab57"
+content-hash = "5b76db19fc43159a4fdcb0ca052b1ea21d4389a6a3b6025b9069544283f1573c"
