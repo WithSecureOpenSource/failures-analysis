@@ -139,12 +139,13 @@ def run(path: str, min_threshold: float, drain_ini: str, drain_off: bool):
             print(
                 df.loc[df["failure1"] == failure, "failure_display"].iloc[0].encode("ascii", "ignore").decode("utf - 8")
             )
-        print("============== FAILURE END =================")
+        print("============== FAILURE END ===================")
         temp = df[df["failure1"] == failure]
         temp = temp.sort_values("cos", ascending=True)
         temp = pd.pivot_table(temp, values=["cos"], index=["suitename2", "testname2", "filename2"])
         pd.set_option("display.max_rows", temp.shape[0] + 1)
         print(temp)
+        print("\n")
 
 
 def main():
@@ -157,7 +158,7 @@ def main():
             "Minimum threshold when failures are considered to be same. Default to 80, when Cos similarity is 0.80 "
             "or more error are considered to be same."
         ),
-        default=0.80,
+        default=80,
     )
     parser.add_argument(
         "--drain",
@@ -178,7 +179,7 @@ def main():
     parser.add_argument("path", type=str, help="Path to folder where xunit files are stored")
     args = parser.parse_args()
     path = args.path
-    min_threshold = args.min
+    min_threshold = args.min/100
     drain_ini = args.drain
     drain_off = args.drain_off
     if not Path(path).is_dir():
