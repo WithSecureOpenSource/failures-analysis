@@ -45,7 +45,7 @@ invoke = "^1.7.3"
 mypy = "^1.0"
 flake8 = "^5.0.4"
 python-semantic-release = "7.33.1"
-approvaltests = "^8.2.0"
+approvaltests = "^10.3.0"
 pytest-mock = "^3.10.0"
 
 [build-system]
